@@ -13,19 +13,19 @@ local CYAN=%{$fg[cyan]%}
 local WHITE=%{$fg[white]%}
 
 setopt correct
-setopt mark_dirs             # ƒtƒ@ƒCƒ‹–¼‚Ì“WŠJ‚ÅƒfƒBƒŒƒNƒgƒŠ‚Éƒ}ƒbƒ`‚µ‚½ê‡ ––”ö‚É / ‚ğ•t‰Á
-setopt auto_param_keys       # ƒJƒbƒR‚Ì‘Î‰‚È‚Ç‚ğ©“®“I‚É•âŠ®
-setopt magic_equal_subst     # ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ìˆø”‚Å --prefix=/usr ‚È‚Ç‚Ì = ˆÈ~‚Å‚à•âŠ®‚Å‚«‚é
+setopt mark_dirs             # ãƒ•ã‚¡ã‚¤ãƒ«åã®å±•é–‹ã§ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ãƒãƒƒãƒã—ãŸå ´åˆ æœ«å°¾ã« / ã‚’ä»˜åŠ 
+setopt auto_param_keys       # ã‚«ãƒƒã‚³ã®å¯¾å¿œãªã©ã‚’è‡ªå‹•çš„ã«è£œå®Œ
+setopt magic_equal_subst     # ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã®å¼•æ•°ã§ --prefix=/usr ãªã©ã® = ä»¥é™ã§ã‚‚è£œå®Œã§ãã‚‹
 
-# •âŠ®Œó•â‚ğ ©«ª¨ ‚Å‚à‘I‘ğo—ˆ‚é‚æ‚¤‚É‚·‚é
+# è£œå®Œå€™è£œã‚’ â†â†“â†‘â†’ ã§ã‚‚é¸æŠå‡ºæ¥ã‚‹ã‚ˆã†ã«ã™ã‚‹
 zstyle ':completion:*:default' menu select=2
-# •âŠ®‚Å¬•¶š‚Å‚à‘å•¶š‚Éƒ}ƒbƒ`‚³‚¹‚é
+# è£œå®Œã§å°æ–‡å­—ã§ã‚‚å¤§æ–‡å­—ã«ãƒãƒƒãƒã•ã›ã‚‹
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# sudo ‚ÌŒã‚ë‚ÅƒRƒ}ƒ“ƒh–¼‚ğ•âŠ®‚·‚é
+# sudo ã®å¾Œã‚ã§ã‚³ãƒãƒ³ãƒ‰åã‚’è£œå®Œã™ã‚‹
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-# ps ƒRƒ}ƒ“ƒh‚ÌƒvƒƒZƒX–¼•âŠ®
+# ps ã‚³ãƒãƒ³ãƒ‰ã®ãƒ—ãƒ­ã‚»ã‚¹åè£œå®Œ
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 
@@ -59,13 +59,14 @@ export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
 export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 alias ls="ls -GF"
-alias ls="ls -F --color"
+#alias ls="ls -F --color"
 alias la='ls -alt'
 alias ll='ls -l'
 alias lt='ls -ltr'
 alias dv='dirs -v'
 alias pud='pushd'
 alias pod='popd'
+alias c='clear'
 alias -s txt='vim'
 
 alias mkto='./todo.sh'
@@ -73,4 +74,6 @@ alias cdto='cd todo/`date "+%Y%m%d"`'
 if [[ ! -n $TMUX ]]; then
   tmux new-session
 fi
-/home/watanabe/.checkTodo.sh
+
+export DATABASE_URL=postgresql+psycopg2://hakalii:hakalii@localhost:5432/hakalii
+

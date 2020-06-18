@@ -1,13 +1,10 @@
-"NeoBundle Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+set nocompatible               " Be iMproved
 
 " Required:
-set runtimepath+=/home/watanabe/.vim/bundle/neobundle.vim/
+set runtimepath+=/Users/ryo/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/watanabe/.vim/bundle'))
+call neobundle#begin(expand('/Users/ryo/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -22,6 +19,14 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle "kana/vim-operator-user"
 NeoBundle 'tyru/operator-camelize.vim'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'maxmellon/vim-jsx-pretty'
+
+" optional
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'othree/es.next.syntax.vim'
+
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -76,3 +81,7 @@ set t_Co=256
 colorscheme elflord
 map <silent>cam <Plug>(operator-camelize)
 map <silent>dec <Plug>(operator-decamelize)
+
+colorscheme molokai
+set termguicolors
+syntax on
